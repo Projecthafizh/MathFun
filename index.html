@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MathFun - Belajar Matematika</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         BACKGROUND DECORATION
+    =========================================== -->
+    <div class="background-shapes">
+        <span class="shape shape-1">＋</span>
+        <span class="shape shape-2">−</span>
+        <span class="shape shape-3">×</span>
+        <span class="shape shape-4">÷</span>
+        <span class="shape shape-5">★</span>
+        <span class="shape shape-6">✦</span>
+        <span class="shape shape-7">●</span>
+        <span class="shape shape-8">◆</span>
+    </div>
+
+
+    <!-- ==========================================
+         HEADER / NAVBAR
+    =========================================== -->
+    <header class="header">
+
+        <div class="container navbar">
+
+            <!-- Logo -->
+            <a href="#" class="logo" onclick="showSection('home'); return false;">
+                <span class="logo-icon">🧮</span>
+                <span class="logo-text">Math<span>Fun</span></span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav-menu">
+
+                <a href="#home"
+                   class="nav-link active"
+                   onclick="showSection('home'); return false;">
+                    🏠 Beranda
+                </a>
+
+                <a href="#hasil"
+                   class="nav-link"
+                   onclick="showSection('hasil'); return false;">
+                    📊 Hasil
+                </a>
+
+                <a href="#tentang"
+                   class="nav-link"
+                   onclick="showSection('tentang'); return false;">
+                    ℹ️ Tentang
+                </a>
+
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Buka menu">
+                <span>☰</span>
+            </button>
+
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+
+            <a href="#home"
+               onclick="showSection('home'); closeMobileMenu(); return false;">
+                🏠 Beranda
+            </a>
+
+            <a href="#hasil"
+               onclick="showSection('hasil'); closeMobileMenu(); return false;">
+                📊 Hasil
+            </a>
+
+            <a href="#tentang"
+               onclick="showSection('tentang'); closeMobileMenu(); return false;">
+                ℹ️ Tentang
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+    =========================================== -->
+    <main>
+
+
+        <!-- ======================================
+             HOME SECTION
+        ======================================= -->
+        <section id="home" class="section active-section">
+
+            <div class="container">
+
+                <!-- Hero -->
+                <div class="hero">
+
+                    <div class="hero-content">
+
+                        <div class="hero-badge">
+                            ✨ Belajar Matematika Jadi Menyenangkan!
+                        </div>
+
+                        <h1>
+                            Yuk Belajar
+                            <span>Matematika!</span>
+                        </h1>
+
+                        <p>
+                            Latih kemampuan berhitungmu melalui pertambahan,
+                            pengurangan, perkalian, dan pembagian dengan cara
+                            yang seru dan interaktif.
+                        </p>
+
+                        <button class="primary-button hero-button"
+                                type="button"
+                                onclick="scrollToOperations()">
+                            🚀 Mulai Belajar
+                        </button>
+
+                    </div>
+
+
+                    <!-- Hero Illustration -->
+                    <div class="hero-illustration">
+
+                        <div class="math-orbit orbit-one">
+                            <span>＋</span>
+                        </div>
+
+                        <div class="math-orbit orbit-two">
+                            <span>×</span>
+                        </div>
+
+                        <div class="math-orbit orbit-three">
+                            <span>÷</span>
+                        </div>
+
+                        <div class="calculator-card">
+
+                            <div class="calculator-top">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="calculator-screen">
+                                <span>7 + 5 = ?</span>
+                            </div>
+
+                            <div class="calculator-buttons">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                                <span>6</span>
+                                <span>7</span>
+                                <span>8</span>
+                                <span>9</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================
+                     OPERATIONS
+                =================================== -->
+                <div class="operations-section" id="operations">
+
+                    <div class="section-heading">
+
+                        <span class="heading-label">
+                            🧮 PILIH LATIHAN
+                        </span>
+
+                        <h2>
+                            Mau Belajar Apa Hari Ini?
+                        </h2>
+
+                        <p>
+                            Pilih salah satu operasi hitung untuk memulai
+                            latihan matematika.
+                        </p>
+
+                    </div>
+
+
+                    <div class="operation-grid">
+
+                        <!-- Pertambahan -->
+                        <button class="operation-card addition-card"
+                                data-operation="addition"
+                                type="button"
+                                onclick="openOperation('addition')">
+
+                            <div class="operation-icon">
+                                ➕
+                            </div>
+
+                            <div class="operation-info">
+                                <h3>Pertambahan</h3>
+                                <p>Belajar menjumlahkan angka</p>
+                            </div>
+
+                            <span class="card-arrow">→</span>
+
+                        </button>
+
+
+                        <!-- Pengurangan -->
+                        <button class="operation-card subtraction-card"
+                                data-operation="subtraction"
+                                type="button"
+                                onclick="openOperation('subtraction')">
+
+                            <div class="operation-icon">
+                                ➖
+                            </div>
+
+                            <div class="operation-info">
+                                <h3>Pengurangan</h3>
+                                <p>Belajar mengurangi angka</p>
+                            </div>
+
+                            <span class="card-arrow">→</span>
+
+                        </button>
+
+
+                        <!-- Perkalian -->
+                        <button class="operation-card multiplication-card"
+                                data-operation="multiplication"
+                                type="button"
+                                onclick="openOperation('multiplication')">
+
+                            <div class="operation-icon">
+                                ✖️
+                            </div>
+
+                            <div class="operation-info">
+                                <h3>Perkalian</h3>
+                                <p>Belajar mengalikan angka</p>
+                            </div>
+
+                            <span class="card-arrow">→</span>
+
+                        </button>
+
+
+                        <!-- Pembagian -->
+                        <button class="operation-card division-card"
+                                data-operation="division"
+                                type="button"
+                                onclick="openOperation('division')">
+
+                            <div class="operation-icon">
+                                ➗
+                            </div>
+
+                            <div class="operation-info">
+                                <h3>Pembagian</h3>
+                                <p>Belajar membagi angka</p>
+                            </div>
+
+                            <span class="card-arrow">→</span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================
+                     QUICK RESULT
+                =================================== -->
+                <div class="quick-result">
+
+                    <div class="quick-result-icon">
+                        📊
+                    </div>
+
+                    <div class="quick-result-content">
+
+                        <span>RIWAYAT LATIHAN</span>
+
+                        <h3>
+                            Lihat perkembangan belajarmu!
+                        </h3>
+
+                        <p>
+                            Kamu bisa melihat jumlah soal,
+                            jawaban benar, salah, dan nilai latihanmu.
+                        </p>
+
+                    </div>
+
+                    <button class="secondary-button"
+                            type="button"
+                            onclick="showSection('hasil')">
+                        Lihat Hasil →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             SETUP SECTION
+        ======================================= -->
+        <section id="setup" class="section hidden-section">
+
+            <div class="container">
+
+                <div class="setup-container">
+
+                    <!-- Back -->
+                    <button class="back-button"
+                            type="button"
+                            onclick="showSection('home')">
+                        ← Kembali
+                    </button>
+
+
+                    <!-- Setup Header -->
+                    <div class="setup-header">
+
+                        <div class="setup-operation-icon"
+                             id="setupOperationIcon">
+                            ➕
+                        </div>
+
+                        <span class="heading-label">
+                            SIAP UNTUK LATIHAN?
+                        </span>
+
+                        <h2 id="setupTitle">
+                            Pertambahan
+                        </h2>
+
+                        <p id="setupDescription">
+                            Atur latihan sesuai keinginanmu.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Mode Selection -->
+                    <div class="setup-box mode-box"
+                         id="modeSelection">
+
+                        <div class="setup-box-title">
+
+                            <span class="setup-number">
+                                1
+                            </span>
+
+                            <div>
+                                <h3>Pilih Mode</h3>
+                                <p>
+                                    Bagaimana kamu ingin mendapatkan angka?
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="mode-grid">
+
+                            <!-- Random -->
+                            <button class="mode-card"
+                                    id="randomMode"
+                                    data-mode="random"
+                                    type="button"
+                                    onclick="selectMode('random')">
+
+                                <span class="mode-icon">
+                                    🎲
+                                </span>
+
+                                <span class="mode-title">
+                                    Angka Acak
+                                </span>
+
+                                <span class="mode-description">
+                                    Soal angka satuan dibuat secara acak.
+                                </span>
+
+                                <span class="mode-check">
+                                    ✓
+                                </span>
+
+                            </button>
+
+
+                            <!-- Choose Number -->
+                            <button class="mode-card"
+                                    id="chooseMode"
+                                    data-mode="number"
+                                    type="button"
+                                    onclick="selectMode('number')">
+
+                                <span class="mode-icon">
+                                    🔢
+                                </span>
+
+                                <span class="mode-title">
+                                    Pilih Angka
+                                </span>
+
+                                <span class="mode-description">
+                                    Pilih angka 1 sampai 10.
+                                </span>
+
+                                <span class="mode-check">
+                                    ✓
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- Number Selection -->
+                        <div class="number-selection"
+                             id="numberSelection">
+
+                            <h4>
+                                Pilih angka kamu
+                            </h4>
+
+                            <div class="number-grid">
+
+                                <button type="button" data-number="1" onclick="selectNumber(1)">1</button>
+                                <button type="button" data-number="2" onclick="selectNumber(2)">2</button>
+                                <button type="button" data-number="3" onclick="selectNumber(3)">3</button>
+                                <button type="button" data-number="4" onclick="selectNumber(4)">4</button>
+                                <button type="button" data-number="5" onclick="selectNumber(5)">5</button>
+                                <button type="button" data-number="6" onclick="selectNumber(6)">6</button>
+                                <button type="button" data-number="7" onclick="selectNumber(7)">7</button>
+                                <button type="button" data-number="8" onclick="selectNumber(8)">8</button>
+                                <button type="button" data-number="9" onclick="selectNumber(9)">9</button>
+                                <button type="button" data-number="10" onclick="selectNumber(10)">10</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Time Selection -->
+                    <div class="setup-box time-box">
+
+                        <div class="setup-box-title">
+
+                            <span class="setup-number">
+                                2
+                            </span>
+
+                            <div>
+                                <h3>Pilih Waktu</h3>
+                                <p>
+                                    Berapa lama kamu ingin berlatih?
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="time-grid">
+
+                            <button class="time-card"
+                                    data-time="1"
+                                    type="button"
+                                    onclick="selectTime(1)">
+
+                                <span class="time-icon">
+                                    ⏱️
+                                </span>
+
+                                <strong>1</strong>
+
+                                <span>Menit</span>
+
+                            </button>
+
+
+                            <button class="time-card"
+                                    data-time="3"
+                                    type="button"
+                                    onclick="selectTime(3)">
+
+                                <span class="time-icon">
+                                    ⏱️
+                                </span>
+
+                                <strong>3</strong>
+
+                                <span>Menit</span>
+
+                            </button>
+
+
+                            <button class="time-card"
+                                    data-time="5"
+                                    type="button"
+                                    onclick="selectTime(5)">
+
+                                <span class="time-icon">
+                                    ⏱️
+                                </span>
+
+                                <strong>5</strong>
+
+                                <span>Menit</span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Start Button -->
+                    <div class="start-area">
+
+                        <button class="primary-button start-button"
+                                id="startButton"
+                                type="button"
+                                onclick="startQuiz()">
+
+                            🚀 Mulai Latihan
+
+                        </button>
+
+                        <p>
+                            Siapkan dirimu dan semangat belajar! 💪
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             QUIZ SECTION
+        ======================================= -->
+        <section id="quiz" class="section hidden-section">
+
+            <div class="container">
+
+                <div class="quiz-container">
+
+                    <!-- Quiz Top -->
+                    <div class="quiz-top">
+
+                        <button class="quit-button"
+                                type="button"
+                                onclick="confirmQuit()">
+                            ✕ Keluar
+                        </button>
+
+
+                        <div class="quiz-title">
+
+                            <span id="quizIcon">
+                                ➕
+                            </span>
+
+                            <span id="quizName">
+                                Pertambahan
+                            </span>
+
+                        </div>
+
+
+                        <div class="timer" id="timer">
+
+                            <span class="timer-icon">
+                                ⏱️
+                            </span>
+
+                            <span id="timerText">
+                                01:00
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Progress -->
+                    <div class="quiz-progress">
+
+                        <div class="progress-info">
+
+                            <span>
+                                Soal <strong id="questionNumber">1</strong>
+                            </span>
+
+                            <span>
+                                Benar: <strong id="correctCount">0</strong>
+                            </span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill"
+                                 id="progressFill">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Question Card -->
+                    <div class="question-card">
+
+                        <span class="question-label">
+                            BERAPA HASILNYA?
+                        </span>
+
+                        <div class="question"
+                             id="question">
+                            7 + 5 = ?
+                        </div>
+
+                        <div class="answer-grid"
+                             id="answerGrid">
+
+                            <button type="button">
+                                10
+                            </button>
+
+                            <button type="button">
+                                11
+                            </button>
+
+                            <button type="button">
+                                12
+                            </button>
+
+                            <button type="button">
+                                13
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Quiz Feedback -->
+                    <div class="quiz-feedback"
+                         id="quizFeedback">
+
+                        <div class="feedback-icon"
+                             id="feedbackIcon">
+                            🎉
+                        </div>
+
+                        <div class="feedback-text"
+                             id="feedbackText">
+                            Jawaban benar!
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             RESULT SECTION
+        ======================================= -->
+        <section id="result" class="section hidden-section">
+
+            <div class="container">
+
+                <div class="result-container">
+
+                    <div class="result-celebration" id="resultCelebration">
+                        🎉
+                    </div>
+
+                    <span class="heading-label">
+                        LATIHAN SELESAI
+                    </span>
+
+                    <h2 id="resultTitle">
+                        Hebat! Kamu Sudah Selesai! 🎊
+                    </h2>
+
+                    <p id="resultSubtitle">
+                        Berikut hasil latihanmu.
+                    </p>
+
+
+                    <!-- Score -->
+                    <div class="score-card">
+
+                        <span class="score-label">
+                            NILAI
+                        </span>
+
+                        <div class="score-number"
+                             id="scoreNumber">
+                            0
+                        </div>
+
+                        <span class="score-text">
+                            Poin
+                        </span>
+
+                    </div>
+
+
+                    <!-- Statistics -->
+                    <div class="result-stats">
+
+                        <div class="result-stat total-stat">
+
+                            <span class="stat-icon">
+                                📝
+                            </span>
+
+                            <strong id="totalQuestions">
+                                0
+                            </strong>
+
+                            <span>
+                                Total Soal
+                            </span>
+
+                        </div>
+
+
+                        <div class="result-stat correct-stat">
+
+                            <span class="stat-icon">
+                                ✅
+                            </span>
+
+                            <strong id="resultCorrect">
+                                0
+                            </strong>
+
+                            <span>
+                                Benar
+                            </span>
+
+                        </div>
+
+
+                        <div class="result-stat wrong-stat">
+
+                            <span class="stat-icon">
+                                ❌
+                            </span>
+
+                            <strong id="resultWrong">
+                                0
+                            </strong>
+
+                            <span>
+                                Salah
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Result Actions -->
+                    <div class="result-actions">
+
+                        <button class="primary-button"
+                                type="button"
+                                onclick="retryQuiz()">
+
+                            🔄 Ulangi Latihan
+
+                        </button>
+
+                        <button class="secondary-button"
+                                type="button"
+                                onclick="showResultDetails()">
+
+                            📋 Lihat Detail
+
+                        </button>
+
+                        <button class="secondary-button"
+                                type="button"
+                                onclick="showSection('home')">
+
+                            🏠 Kembali ke Menu
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             RESULT DETAILS SECTION
+        ======================================= -->
+        <section id="resultDetails"
+                 class="section hidden-section">
+
+            <div class="container">
+
+                <div class="details-container">
+
+                    <button class="back-button"
+                            type="button"
+                            onclick="showSection('result')">
+                        ← Kembali ke Hasil
+                    </button>
+
+
+                    <div class="section-heading">
+
+                        <span class="heading-label">
+                            📋 DETAIL JAWABAN
+                        </span>
+
+                        <h2>
+                            Lihat Jawabanmu
+                        </h2>
+
+                        <p>
+                            Periksa jawaban yang benar dan jawaban yang
+                            perlu kamu pelajari lagi.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Answer Details -->
+                    <div class="answer-details"
+                         id="answerDetails">
+
+                        <!-- JavaScript akan mengisi detail jawaban di sini -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             HISTORY / RESULT SECTION
+        ======================================= -->
+        <section id="hasil"
+                 class="section hidden-section">
+
+            <div class="container">
+
+                <div class="history-container">
+
+                    <div class="section-heading">
+
+                        <span class="heading-label">
+                            📊 RECAP LATIHAN
+                        </span>
+
+                        <h2>
+                            Perkembangan Belajarmu
+                        </h2>
+
+                        <p>
+                            Lihat hasil latihan yang sudah kamu lakukan.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Summary -->
+                    <div class="history-summary">
+
+                        <div class="summary-card">
+
+                            <span>📝</span>
+
+                            <strong id="historyTotal">
+                                0
+                            </strong>
+
+                            <small>
+                                Total Soal
+                            </small>
+
+                        </div>
+
+
+                        <div class="summary-card">
+
+                            <span>✅</span>
+
+                            <strong id="historyCorrect">
+                                0
+                            </strong>
+
+                            <small>
+                                Jawaban Benar
+                            </small>
+
+                        </div>
+
+
+                        <div class="summary-card">
+
+                            <span>❌</span>
+
+                            <strong id="historyWrong">
+                                0
+                            </strong>
+
+                            <small>
+                                Jawaban Salah
+                            </small>
+
+                        </div>
+
+
+                        <div class="summary-card">
+
+                            <span>🏆</span>
+
+                            <strong id="historyScore">
+                                0
+                            </strong>
+
+                            <small>
+                                Rata-rata Nilai
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- History List -->
+                    <div class="history-list-container">
+
+                        <div class="history-list-header">
+
+                            <h3>
+                                📚 Riwayat Latihan
+                            </h3>
+
+                        </div>
+
+
+                        <div class="history-list"
+                             id="historyList">
+
+                            <!-- JavaScript akan mengisi riwayat -->
+
+                            <div class="empty-history">
+
+                                <div class="empty-history-icon">
+                                    📚
+                                </div>
+
+                                <h3>
+                                    Belum Ada Riwayat
+                                </h3>
+
+                                <p>
+                                    Yuk mulai latihan pertamamu!
+                                </p>
+
+                                <button class="primary-button"
+                                        type="button"
+                                        onclick="showSection('home')">
+                                    🚀 Mulai Latihan
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             ABOUT SECTION
+        ======================================= -->
+        <section id="tentang"
+                 class="section hidden-section">
+
+            <div class="container">
+
+                <div class="about-container">
+
+                    <div class="section-heading">
+
+                        <span class="heading-label">
+                            ℹ️ TENTANG MATHFUN
+                        </span>
+
+                        <h2>
+                            Belajar Matematika Jadi Seru!
+                        </h2>
+
+                        <p>
+                            MathFun adalah website latihan matematika
+                            interaktif yang dirancang untuk membantu
+                            pengguna berlatih operasi hitung dengan
+                            cara yang menyenangkan.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-grid">
+
+                        <div class="about-card">
+
+                            <span class="about-icon">
+                                🎯
+                            </span>
+
+                            <h3>
+                                Latihan Terarah
+                            </h3>
+
+                            <p>
+                                Pilih jenis operasi dan cara latihan
+                                sesuai kebutuhanmu.
+                            </p>
+
+                        </div>
+
+
+                        <div class="about-card">
+
+                            <span class="about-icon">
+                                ⏱️
+                            </span>
+
+                            <h3>
+                                Tantangan Waktu
+                            </h3>
+
+                            <p>
+                                Pilih waktu 1, 3, atau 5 menit untuk
+                                menguji kemampuan berhitungmu.
+                            </p>
+
+                        </div>
+
+
+                        <div class="about-card">
+
+                            <span class="about-icon">
+                                📊
+                            </span>
+
+                            <h3>
+                                Lihat Perkembangan
+                            </h3>
+
+                            <p>
+                                Lihat jawaban benar, salah, nilai,
+                                dan riwayat latihanmu.
+                            </p>
+
+                        </div>
+
+
+                        <div class="about-card">
+
+                            <span class="about-icon">
+                                🌟
+                            </span>
+
+                            <h3>
+                                Belajar Menyenangkan
+                            </h3>
+
+                            <p>
+                                Animasi dan interaksi membuat proses
+                                belajar terasa lebih menarik.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-footer">
+
+                        <span class="about-footer-icon">
+                            🧮
+                        </span>
+
+                        <p>
+                            <strong>MathFun</strong>
+                            — Belajar, Berlatih, dan Jadi Lebih Hebat!
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div class="footer-logo">
+                🧮 MathFun
+            </div>
+
+            <p>
+                Belajar matematika dengan cara yang menyenangkan.
+            </p>
+
+            <div class="footer-bottom">
+                © 2026 MathFun. HAFIZH NUR WAHID.
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==========================================
+         CONFIRM QUIT MODAL
+    =========================================== -->
+    <div class="modal-overlay"
+         id="quitModal">
+
+        <div class="modal-box">
+
+            <div class="modal-icon">
+                ⚠️
+            </div>
+
+            <h3>
+                Keluar dari Latihan?
+            </h3>
+
+            <p>
+                Progress latihanmu saat ini akan dihentikan.
+                Apakah kamu yakin ingin keluar?
+            </p>
+
+            <div class="modal-actions">
+
+                <button class="secondary-button"
+                        type="button"
+                        onclick="closeQuitModal()">
+                    Lanjut Latihan
+                </button>
+
+                <button class="danger-button"
+                        type="button"
+                        onclick="quitQuiz()">
+                    Ya, Keluar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         ALERT / MESSAGE MODAL
+    =========================================== -->
+    <div class="modal-overlay"
+         id="alertModal">
+
+        <div class="modal-box">
+
+            <div class="modal-icon"
+                 id="modalIcon">
+                💡
+            </div>
+
+            <h3 id="modalTitle">
+                Pemberitahuan
+            </h3>
+
+            <p id="modalMessage">
+                Silakan pilih opsi latihan terlebih dahulu.
+            </p>
+
+            <div class="modal-actions">
+
+                <button class="primary-button"
+                        type="button"
+                        onclick="closeAlertModal()">
+                    Mengerti
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+    <script src="script.js"></script>
+
+</body>
+</html>
