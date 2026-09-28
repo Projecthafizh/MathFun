@@ -1382,3 +1382,156 @@ window.closeAlertModal = closeAlertModal;
 window.showSection = showSection;
 window.showResultDetails = showResultDetails;
 window.closeMobileMenu = closeMobileMenu;
+/* =====================================================
+   SISTEM MUSIK OTOMATIS
+   ===================================================== */
+
+const menuMusic = document.getElementById("menuMusic");
+const gameMusic = document.getElementById("gameMusic");
+
+let musicUnlocked = false;
+
+// Pengaturan
+if (menuMusic) {
+    menuMusic.loop = true;
+}
+
+if (gameMusic) {
+    gameMusic.loop = true;
+}
+
+
+/* =====================================================
+   MUSIK MENU
+   ===================================================== */
+
+function playMenuMusic() {
+    if (!menuMusic) return;
+
+    // Hentikan musik game
+    if (gameMusic) {
+        gameMusic.pause();
+        gameMusic.currentTime = 0;
+    }
+
+    // Mulai musik menu
+    const playPromise = menuMusic.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+    }
+}
+
+
+/* =====================================================
+   MUSIK GAME
+   ===================================================== */
+
+function playGameMusic() {
+    if (!gameMusic) return;
+
+    // Hentikan musik menu
+    if (menuMusic) {
+        menuMusic.pause();
+        menuMusic.currentTime = 0;
+    }
+
+    // Mulai musik game
+    const playPromise = gameMusic.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+    }
+}
+
+
+/* =====================================================
+   STOP SEMUA MUSIK
+   ===================================================== */
+
+function stopAllMusic() {
+    if (menuMusic) {
+        menuMusic.pause();
+        menuMusic.currentTime = 0;
+    }
+
+    if (gameMusic) {
+        gameMusic.pause();
+        gameMusic.currentTime = 0;
+    }
+}
+
+
+/* =====================================================
+   INTERAKSI PERTAMA
+   ===================================================== */
+
+function unlockMusic() {
+
+    if (musicUnlocked) return;
+
+    musicUnlocked = true;
+
+    // Saat pertama kali pengguna berinteraksi,
+    // musik menu mulai dimainkan.
+    playMenuMusic();
+
+    document.removeEventListener("click", unlockMusic);
+    document.removeEventListener("touchstart", unlockMusic);
+    document.removeEventListener("keydown", unlockMusic);
+}
+
+document.addEventListener("click", unlockMusic);
+document.addEventListener("touchstart", unlockMusic);
+document.addEventListener("keydown", unlockMusic);
+
+
+/* =====================================================
+   MASUK MENU
+   ===================================================== */
+
+function activateMenuMusic() {
+    playMenuMusic();
+}
+
+
+/* =====================================================
+   MULAI GAME
+   ===================================================== */
+
+function activateGameMusic() {
+    playGameMusic();
+}
+
+
+/* =====================================================
+   GAME SELESAI
+   ===================================================== */
+
+function activateResultMusic() {
+    stopAllMusic();
+}
+
+
+/* =====================================================
+   KEMBALI KE MENU
+   ===================================================== */
+
+function returnToMenuMusic() {
+    // Game music berhenti
+    if (gameMusic) {
+        gameMusic.pause();
+        gameMusic.currentTime = 0;
+    }
+
+    // Menu music langsung dimainkan
+    if (menuMusic) {
+        menuMusic.currentTime = 0;
+
+        const playPromise = menuMusic.play();
+
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {});
+        }
+    }
+}
